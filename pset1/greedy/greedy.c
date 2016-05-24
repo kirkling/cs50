@@ -8,64 +8,55 @@ int main(void)
     int const dime = 10;
     int const nickel = 5;
     int const penny = 1;
-    float return;
+    float amt;
     float total;
     int coins = 0;
 
     do
     {
-        printf("O hai! How much change is owed?\n")
-        return = GetFloat();
-        printf("\n");
+        printf("O hai! How much change is owed?\n");
+        amt = GetFloat();
 
-        if (return < 0)
+        if (amt < 0)
         {
             printf("Error: Value cannot be negative.\n");
         }
     }
-    while(return < 0);
+    while(amt < 0);
 
-    total = (return *= 100.00)
+    total = (amt *= 100.00);
 
-    printf("%f", total);
+    /* printf("%f\n", total); */
 
     while (total > 0)
     {
         do
         {
-            (total - quarter);
+            (total -= quarter);
             coins++;
         }
         while(total >= 25);
 
         do
         {
-            (total - dime);
+            (total -= dime);
             coins++;
         }
-        while(total >= 10)
+        while(total >= 10);
 
         do
         {
-            (total - nickel);
+            (total -= nickel);
             coins++;
         }
         while(total >= 5);
 
         do
         {
-            (total - penny);
+            (total -= penny);
             coins++;
         }
         while(total >= 1);
-
-        /* or should I have a condition for the while being "while(total < 5 || total >= 1)" and etc.? Or should I yes really
-        be using "while" or "if/if-else/if-else if-else" statements, or even both nested together and within each other, for this
-        like I had originally thought to start out? Do I need to have new measures of the total declared after each one or will
-        the program just go through this okay? */
     }
-    if (total == 0)
-    {
-        printf("%i\n", coins);
-    }
+    printf("%i\n", coins);
 }
